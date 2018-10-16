@@ -14,7 +14,7 @@ const userSchema = new Schema({
 	google: {
 		googleId: { type: String, required: false }
 	},
-	photos: []
+	photos: [],
 	// local: {
 	// 	email: { type: String, unique: true },
 	// 	password: { type: String }
@@ -25,6 +25,9 @@ const userSchema = new Schema({
 	// },
 	// firstName: { type: String },
 	// lastName: { type: String }
+	catalog: [
+		{ type: mongoose.Schema.ObjectId, ref: 'Repertoire' }
+	  ]
 })
 
 // Define schema methods

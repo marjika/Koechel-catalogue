@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../db/models/user')
 const passport = require('../passport')
+const catalogController = require("../controllers/catalogController");
 
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 router.get(
@@ -72,5 +73,14 @@ router.post('/signup', (req, res) => {
 		})
 	})
 })
+
+router.route("/addMusic")
+  //.get(catalogController.findAll)
+  .post(catalogController.create);
+
+//router
+  //.route("/repertoire/:id")
+  //.get(catalogController.findById)
+  //.delete(catalogController.remove);
 
 module.exports = router

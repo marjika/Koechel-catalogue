@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import Jumbotron from "../../components/Jumbotron";
 //import DeleteBtn from "../../components/DeleteBtn";
-//import API from "../../utils/API";
+import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 //import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
@@ -45,20 +45,22 @@ class AddMusic extends Component {
     });
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-//   handleFormSubmit = event => {
-//     event.preventDefault();
-//     if (this.state.title && this.state.author) {
-//       API.saveBook({
-//         title: this.state.title,
-//         author: this.state.author,
-//         synopsis: this.state.synopsis
-//       })
-//         .then(res => this.loadBooks())
-//         .catch(err => console.log(err));
-//     }
-//   };
+//   When the form is submitted, use the API.saveBook method to save the book data
+//   Then reload books from the database
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.title) {
+      API.saveCatalog({
+        title: this.state.title,
+        composer: this.state.composer,
+        time: this.state.time,
+        notes: this.state.notes
+      })
+        .then(console.log(this.state.title))
+        //.then(res => this.getSaved())
+        .catch(err => console.log(err));
+    }
+  };
 
   render() {
     return (
