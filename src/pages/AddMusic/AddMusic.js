@@ -3,7 +3,7 @@ import React, { Component } from "react";
 //import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
-//import { List, ListItem } from "../../components/List";
+import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 
 class AddMusic extends Component {
@@ -16,19 +16,18 @@ class AddMusic extends Component {
     notes: ""
   };
 
-  // When the component mounts, load all books and save them to this.state.books
-//   componentDidMount() {
-//     this.loadBooks();
-//   }
+  // When the component mounts, load catalog and save them to this.state.repertoire
+  componentDidMount() {
+    this.loadRepertoire();
+  }
 
-  // Loads all books  and sets them to this.state.books
-//   loadBooks = () => {
-//     API.getBooks()
-//       .then(res =>
-//         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-//       )
-//       .catch(err => console.log(err));
-//   };
+  loadRepertoire = () => {
+    API.getSaved()
+      .then(res =>
+        this.setState({ repertoire: res.data, title: "", composer: "", time: "", notes: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
   // Deletes a book from the database with a given id, then reloads books from the db
 //   deleteBook = id => {
@@ -45,8 +44,8 @@ class AddMusic extends Component {
     });
   };
 
-//   When the form is submitted, use the API.saveBook method to save the book data
-//   Then reload books from the database
+//   When the form is submitted, use the API.saveCatalog method to save the music data
+//   Then reload from the database
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title) {
@@ -56,8 +55,7 @@ class AddMusic extends Component {
         time: this.state.time,
         notes: this.state.notes
       })
-        .then(console.log(this.state.title))
-        //.then(res => this.getSaved())
+        .then(res => this.loadRepertoire())
         .catch(err => console.log(err));
     }
   };
@@ -90,10 +88,10 @@ class AddMusic extends Component {
                 placeholder="Time Frame"
               />
               <TextArea
-                value={this.state.synopsis}
+                value={this.state.notes}
                 onChange={this.handleInputChange}
                 name="notes"
-                placeholder="Synopsis"
+                placeholder="Notes"
               />
               <FormBtn
                 disabled={!(this.state.title)}
@@ -106,25 +104,26 @@ class AddMusic extends Component {
           <Col size="md-6 sm-12">
             {/* <Jumbotron>
               <h1>Books On My List</h1>
-            </Jumbotron>
-            {this.state.books.length ? (
+            </Jumbotron> */}
+            {this.state.repertoire.length ? (
               <List>
-                {this.state.books.map(book => {
+                {this.state.repertoire.map(piece => {
                   return (
-                    <ListItem key={book._id}>
-                      <a href={"/books/" + book._id}>
+                    <ListItem key={piece._id}>
+                        {piece.title} by {piece.composer}
+                      {/* <a href={"/books/" + book._id}>
                         <strong>
                           {book.title} by {book.author}
                         </strong>
-                      </a>
-                      <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                      </a> */}
+                      {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
                     </ListItem>
                   );
                 })}
               </List>
             ) : (
               <h3>No Results to Display</h3>
-            )} */}
+            )}
           </Col>
         </Row>
       </Container>

@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../db/models/user')
+//const Repertoire = require('../db/models/repertoire')
 const passport = require('../passport')
-const catalogController = require("../controllers/catalogController");
 
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 router.get(
@@ -74,13 +74,21 @@ router.post('/signup', (req, res) => {
 	})
 })
 
-router.route("/addMusic")
-  //.get(catalogController.findAll)
-  .post(catalogController.create);
+// router.post('/addMusic', (req,res) => {
+//     console.log(req.body);
+//       Repertoire
+//         .create(req.body)
+//         .then(dbRepertoire => res.json(dbRepertoire))
+//         .catch(err => res.status(422).json(err));
+    
+// })
 
-//router
-  //.route("/repertoire/:id")
-  //.get(catalogController.findById)
-  //.delete(catalogController.remove);
+// router.get('/addMusic', (req,res) => {
+// 	Repertoire
+// 		.find(req.query)
+// 		.sort({ date: -1 })
+// 		.then(dbRepertoire => res.json(dbRepertoire))
+// 		.catch(err => res.status(422).json(err));    
+// })
 
 module.exports = router
