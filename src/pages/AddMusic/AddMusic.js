@@ -15,16 +15,31 @@ class AddMusic extends Component {
     time: "",
     notes: ""
   };
+  constructor() {
+    super();
+    this.userId = "";
+  }
 
   // When the component mounts, load catalog and save them to this.state.repertoire
   componentDidMount() {
-    this.loadRepertoire();
+      if (this.props) {
+        this.userId=this.props.user._id
+        this.loadRepertoire(this.props.user._id);
+        console.log(this.props.user._id, this.userId);
+      }
   }
 
-  loadRepertoire = () => {
-    API.getSaved()
+  showModal = () => {
+    this.setState({show: !this.state.show}, () => {
+      this.hideModal();
+  });
+  }
+
+  loadRepertoire = id => {
+    API.getSaved(id)
+      //.then(res => console.log(res.data.catalog))
       .then(res =>
-        this.setState({ repertoire: res.data, title: "", composer: "", time: "", notes: "" })
+        this.setState({ repertoire: res.data.catalog, title: "", composer: "", time: "", notes: "" })
       )
       .catch(err => console.log(err));
   };
@@ -53,7 +68,8 @@ class AddMusic extends Component {
         title: this.state.title,
         composer: this.state.composer,
         time: this.state.time,
-        notes: this.state.notes
+        notes: this.state.notes,
+        id: this.userId
       })
         .then(res => this.loadRepertoire())
         .catch(err => console.log(err));

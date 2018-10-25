@@ -25,9 +25,10 @@ const userSchema = new Schema({
 	// },
 	// firstName: { type: String },
 	// lastName: { type: String }
-	catalog: [
-		{ type: mongoose.Schema.ObjectId, ref: 'Repertoire' }
-	  ]
+	catalog: [{   
+		type: Schema.Types.ObjectId,
+		ref: 'Repertoire' 
+	}]
 })
 
 // Define schema methods

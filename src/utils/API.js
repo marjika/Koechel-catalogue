@@ -8,12 +8,13 @@ export default {
     //     url += '?q=' + data.topic + "&begin_date=" + data.start + "0101&end_date=" + data.end + "0101&api-key=" + APIkey;
     //     return axios.get(url);
     // },
-    getSaved: function() {
-        return axios.get("/addMusic");
+    getSaved: function(id) {
+        console.log(id);
+        return axios.get("/addMusic/" + id);
     },
     saveCatalog: function(catalogData) {
         console.log(catalogData);
-        return axios.post("/addMusic", catalogData);
+        return axios.post("/addMusic/"+ catalogData.id, catalogData);
     },
     deleteCatalog: function(id) {
         return axios.delete("/addMusic/" + id);

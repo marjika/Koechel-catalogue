@@ -6,7 +6,7 @@ const repertoireSchema = new Schema({
   title: { type: String, required: true },
   composer: { type: String },
   timeFrame: { type: String },
-  synopsis: { type: String }
+  notes: { type: String }
 });
 
 const Repertoire = mongoose.model("Repertoire", repertoireSchema);
