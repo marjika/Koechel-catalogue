@@ -4,20 +4,17 @@ const User = require('../db/models/user')
 const Repertoire = require('../db/models/repertoire')
 //const passport = require('../passport')
 
-    // findById: function(req, res) {
-    //   db.Article
-    //     .findById(req.params.id)
-    //     .then(dbModel => res.json(dbModel))
-    //     .catch(err => res.status(422).json(err));
-    // },
 
-    // remove: function(req, res) {
-    //   db.Article
-    //     .findById({ _id: req.params.id })
-    //     .then(dbModel => dbModel.remove())
-    //     .then(dbModel => res.json(dbModel))
-    //     .catch(err => res.status(422).json(err));
-    // }
+    router.delete('/:id', (req,res) => {
+        Repertoire.deleteOne({ _id: req.params.id })
+        .then(function(removed) {
+          res.json(removed);
+        }).catch(function(err,removed) {
+            // If an error occurred, send it to the client
+              res.json(err);
+          });
+      });
+
     router.post('/:id', (req,res) => {
         console.log(req.body);
           Repertoire
@@ -44,25 +41,5 @@ const Repertoire = require('../db/models/repertoire')
             .catch(err => res.status(422).json(err));    
     })
 
-    // app.get("/articles/:id", function(req, res) {
-    //     console.log(req.params.id);
-    //     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-    //     db.Article.findOne({ _id: req.params.id })
-    //       // ..and populate all of the notes associated with it
-    //       .populate("note")
-    //       .then(function(dbArticle) {
-    //         // If we were able to successfully find an Article with the given id, send it back to the client
-    //         console.log(dbArticle);
-    //         if (dbArticle) {
-    //         res.render("articles", {
-    //           data: dbArticle
-    //         });
-    //       }
-    //       })
-    //       .catch(function(err) {
-    //         // If an error occurred, send it to the client
-    //         res.json(err);
-    //       });
-    //   });
-
+ 
     module.exports = router

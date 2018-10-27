@@ -16,7 +16,10 @@ export default {
         console.log(catalogData);
         return axios.post("/addMusic/"+ catalogData.id, catalogData);
     },
-    deleteCatalog: function(id) {
+    deleteMusic: function(id) {
         return axios.delete("/addMusic/" + id);
+    },
+    getUserId: function() {
+        return axios.get('/auth/user')    
     }
 };

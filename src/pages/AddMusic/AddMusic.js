@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import Jumbotron from "../../components/Jumbotron";
-//import DeleteBtn from "../../components/DeleteBtn";
+import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -9,6 +9,7 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 class AddMusic extends Component {
   // Setting our component's initial state
   state = {
+    user: "",
     repertoire: [],
     title: "",
     composer: "",
@@ -22,17 +23,13 @@ class AddMusic extends Component {
 
   // When the component mounts, load catalog and save them to this.state.repertoire
   componentDidMount() {
-      if (this.props) {
-        this.userId=this.props.user._id
-        this.loadRepertoire(this.props.user._id);
-        console.log(this.props.user._id, this.userId);
-      }
-  }
-
-  showModal = () => {
-    this.setState({show: !this.state.show}, () => {
-      this.hideModal();
-  });
+      API.getUserId()
+        .then(res =>
+            this.setState({ user: res.data.user._id }, () => {
+                this.loadRepertoire(this.state.user); 
+            })
+        )
+        .catch(err => console.log(err));
   }
 
   loadRepertoire = id => {
@@ -44,12 +41,11 @@ class AddMusic extends Component {
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
-//   deleteBook = id => {
-//     API.deleteBook(id)
-//       .then(res => this.loadBooks())
-//       .catch(err => console.log(err));
-//   };
+  deleteMusic = id => {
+    API.deleteMusic(id)
+      .then(res => this.loadRepertoire(this.state.user))
+      .catch(err => console.log(err));
+  };
 
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {
@@ -71,7 +67,7 @@ class AddMusic extends Component {
         notes: this.state.notes,
         id: this.userId
       })
-        .then(res => this.loadRepertoire())
+        .then(res => this.loadRepertoire(this.userId))
         .catch(err => console.log(err));
     }
   };
@@ -132,7 +128,7 @@ class AddMusic extends Component {
                           {book.title} by {book.author}
                         </strong>
                       </a> */}
-                      {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                      <DeleteBtn onClick={() => this.deleteMusic(piece._id)} />
                     </ListItem>
                   );
                 })}
