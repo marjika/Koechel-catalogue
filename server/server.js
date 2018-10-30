@@ -72,6 +72,8 @@ if (process.env.NODE_ENV === 'production') {
 /* Express app ROUTING */
 app.use('/auth', require('./auth'))
 app.use('/addMusic', require('./controllers'))
+app.use('/edits', require('./details'))
+
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {

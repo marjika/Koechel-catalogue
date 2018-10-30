@@ -20,6 +20,9 @@ export default {
         return axios.delete("/addMusic/" + id);
     },
     getUserId: function() {
-        return axios.get('/auth/user')    
+        return axios.get('/auth/user');    
+    },
+    getNotes: function(id) {
+        return axios.get("/edits/" + id);
     }
 };

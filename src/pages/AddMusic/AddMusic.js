@@ -125,12 +125,13 @@ class AddMusic extends Component {
                 {this.state.repertoire.map(piece => {
                   return (
                     <ListItem key={piece._id}>
-                        {piece.title} by {piece.composer}
-                      {/* <a href={"/books/" + book._id}>
+                        {/* {piece.title} by {piece.composer}
+                      <a href={"/books/" + book._id}> */}
+                      <a href={"/edits/" + piece._id}>
                         <strong>
                           {piece.title} by {piece.composer}
                         </strong>
-                      </a> */}
+                      </a>
                       <DeleteBtn onClick={() => this.deleteMusic(piece._id)} />
                     </ListItem>
                   );

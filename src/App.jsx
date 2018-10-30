@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
 import AddMusic from './pages/AddMusic'
+import Edits from './pages/Edits'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -23,7 +24,7 @@ const DisplayLinks = props => {
 							Logout
 						</Link>
 					</li>
-					<li className="nav-item">
+					<li className="nav-item"  style={{color:"white"}}>
 						<Link to="/addMusic" className="nav-link">
 							Add a piece to your list
 						</Link>
@@ -119,9 +120,11 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<div className="top">
 				<Header user={this.state.user} />
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
+				</div>
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
 				<Route exact path="/" render={() => <Home user={this.state.user} />} />
@@ -140,6 +143,7 @@ class App extends Component {
   					render={() => <AddMusic />}
 				/> */}
 				<Route exact path="/addMusic" component={AddMusic} />
+				<Route exact path="/edits/:id" component={Edits} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 		)
