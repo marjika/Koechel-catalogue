@@ -119,7 +119,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>This is the main App component</h1>
 				<Header user={this.state.user} />
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -136,11 +135,11 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
-				<Route
+				{/* <Route
   					exact path="/addMusic"
   					render={() => <AddMusic />}
-				/>
-				{/* <Route exact path="/addMusic" component={AddMusic} /> */}
+				/> */}
+				<Route exact path="/addMusic" component={AddMusic} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 		)

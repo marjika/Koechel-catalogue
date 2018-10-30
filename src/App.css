@@ -22,3 +22,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.col-md-6 {
+  padding-top: 2%;
+}
+
+.list-group-item {
+  background: none;
+  color: white;
+}

@@ -5,6 +5,8 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import './AddMusic.css';
+
 
 class AddMusic extends Component {
   // Setting our component's initial state
@@ -33,7 +35,7 @@ class AddMusic extends Component {
   }
 
   loadRepertoire = id => {
-    API.getSaved(id)
+    API.getSaved(this.state.user)
       //.then(res => console.log(res.data.catalog))
       .then(res =>
         this.setState({ repertoire: res.data.catalog, title: "", composer: "", time: "", notes: "" })
@@ -63,9 +65,9 @@ class AddMusic extends Component {
       API.saveCatalog({
         title: this.state.title,
         composer: this.state.composer,
-        time: this.state.time,
+        timeFrame: this.state.time,
         notes: this.state.notes,
-        id: this.userId
+        id: this.state.user
       })
         .then(res => this.loadRepertoire(this.userId))
         .catch(err => console.log(err));
@@ -74,6 +76,7 @@ class AddMusic extends Component {
 
   render() {
     return (
+        <div className="musicList">
       <Container fluid>
         <Row>
           <Col size="md-6">
@@ -125,7 +128,7 @@ class AddMusic extends Component {
                         {piece.title} by {piece.composer}
                       {/* <a href={"/books/" + book._id}>
                         <strong>
-                          {book.title} by {book.author}
+                          {piece.title} by {piece.composer}
                         </strong>
                       </a> */}
                       <DeleteBtn onClick={() => this.deleteMusic(piece._id)} />
@@ -139,6 +142,7 @@ class AddMusic extends Component {
           </Col>
         </Row>
       </Container>
+      </div>
     );
   }
 }

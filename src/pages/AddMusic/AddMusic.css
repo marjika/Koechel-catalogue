@@ -1,0 +1,36 @@
+/* .musicList {
+    background-image: url("../../components/images/dark-stands.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 860px;
+    padding-top: 50px;
+} */
+
+.musicList { 
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("../../components/images/dark-stands.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .form-control, .form-group {
+    background: none;
+  }
+
+  .form-group ::placeholder {
+    color: white;
+  }
+/* p{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    margin: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+} */
