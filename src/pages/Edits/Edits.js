@@ -32,6 +32,8 @@ class Edits extends Component {
                             <p>These are your music notes.</p>
                             <h3>{this.state.item.title}</h3>
                             <h5>{this.state.item.notes}</h5>
+                            {(this.state.item.timeFrame) &&
+                            <h5>date: {this.state.item.timeFrame}</h5>}
                         </Col>
                         <Col size="md-6" />
                     </Row>

@@ -38,7 +38,9 @@ class AddMusic extends Component {
     API.getSaved(this.state.user)
       //.then(res => console.log(res.data.catalog))
       .then(res =>
-        this.setState({ repertoire: res.data.catalog, title: "", composer: "", time: "", notes: "" })
+        this.setState({ repertoire: res.data.catalog, title: "", composer: "", time: "", notes: "" }, () => {
+            console.log(this.state.repertoire)
+        })
       )
       .catch(err => console.log(err));
   };
@@ -132,7 +134,7 @@ class AddMusic extends Component {
                           {piece.title} by {piece.composer}
                         </strong>
                       </a>
-                      <DeleteBtn onClick={() => this.deleteMusic(piece._id)} />
+                      <DeleteBtn onClick={() => this.deleteMusic(piece._id)} style={{float:"right"}} />
                     </ListItem>
                   );
                 })}

@@ -48,3 +48,44 @@
 .nav-link:hover{
   color: gray;
 }
+
+.nav-link:focus{
+  color: white;
+}
+
+.Home {
+  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("./components/images/old-music.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 580px; 
+  height:auto !important; 
+  height: 580px; 
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 44px;
+  letter-spacing: 1px;
+  padding-top: 20px;
+}
+
+.SignupForm, .LoginForm {
+  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("./components/images/fleur.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 580px; 
+  height:auto !important; 
+  height: 580px; 
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 1px;
+  padding-top: 20px;
+}

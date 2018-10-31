@@ -14,7 +14,7 @@ const DisplayLinks = props => {
 		return (
 			<nav className="navbar">
 				<ul className="nav">
-					<li className="nav-item">
+					<li className="nav-item" style={{color:"white"}}>
 						<Link to="/" className="nav-link">
 							Home
 						</Link>

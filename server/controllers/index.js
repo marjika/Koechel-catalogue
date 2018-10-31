@@ -29,15 +29,14 @@ const Repertoire = require('../db/models/repertoire')
     
     router.get('/:id', (req,res) => {
         User.findOne({ _id: req.params.id })
-            .populate("catalog")
+            .populate({path: "catalog", options: { sort: { 'composer': 1 } } })
             .then(function(dbUser) {
-                console.log(dbUser);
+                console.log(res.data);
                 if(dbUser) {
                 res.json(dbUser);
             }
             })
-            //.sort({ date: -1 })
-            //.exec(dbRepertoire => res.json(dbRepertoire))
+
             .catch(err => res.status(422).json(err));    
     })
 
