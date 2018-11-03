@@ -24,5 +24,9 @@ export default {
     },
     getNotes: function(id) {
         return axios.get("/edits/" + id);
+    },
+    editNote: function(noteData) {
+        //console.log(noteData);
+        return axios.put("/edits", noteData)
     }
 };

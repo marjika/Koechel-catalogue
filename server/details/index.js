@@ -9,5 +9,15 @@ router.get('/:id', (req,res) => {
 		.catch(err => res.status(422).json(err));      
 })
 
+router.put('/', function(req, res) {
+    console.log(req.body);
+    Repertoire.findOneAndUpdate({ _id: req.body.id }, { notes: req.body.notes }, { new: true })
+        .then(function(dbNotes) {
+          res.json(dbNotes);
+        })
+        .catch(function(err) {
+          res.json(err);
+        });
+  });
 
 module.exports = router

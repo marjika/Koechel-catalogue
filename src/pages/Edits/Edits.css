@@ -8,4 +8,20 @@
     height:auto !important; 
     height: 580px; 
     color: white;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .musicNotes h6 {
+      font-weight: bold;
+  }
+
+  .musicNotes h5 {
+      border: 1px solid white;
+      padding: 3%;
+      margin: 3%;
+      text-align: left;
+  }
+
+  .musicNotes h3 {
+      text-decoration: underline;
   }

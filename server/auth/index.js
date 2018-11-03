@@ -74,22 +74,4 @@ router.post('/signup', (req, res) => {
 	})
 })
 
-
-// router.post('/addMusic', (req,res) => {
-//     console.log(req.body);
-//       Repertoire
-//         .create(req.body)
-//         .then(dbRepertoire => res.json(dbRepertoire))
-//         .catch(err => res.status(422).json(err));
-    
-// })
-
-// router.get('/addMusic', (req,res) => {
-// 	Repertoire
-// 		.find(req.query)
-// 		.sort({ date: -1 })
-// 		.then(dbRepertoire => res.json(dbRepertoire))
-// 		.catch(err => res.status(422).json(err));    
-// })
-
 module.exports = router
