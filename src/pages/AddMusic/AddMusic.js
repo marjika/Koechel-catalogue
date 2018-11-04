@@ -78,73 +78,65 @@ class AddMusic extends Component {
 
   render() {
     return (
-        <div className="musicList">
+      <div className="musicList">
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            {/* <Jumbotron>
-              <h1>What Books Should I Read?</h1>
-            </Jumbotron> */}
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                value={this.state.composer}
-                onChange={this.handleInputChange}
-                name="composer"
-                placeholder="Composer"
-              />
-              <Input
-                value={this.state.time}
-                onChange={this.handleInputChange}
-                name="time"
-                placeholder="Time Frame"
-              />
-              <TextArea
-                value={this.state.notes}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Notes"
-              />
-              <FormBtn
-                disabled={!(this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Add to Repertoire
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            {/* <Jumbotron>
-              <h1>Books On My List</h1>
-            </Jumbotron> */}
-            {this.state.repertoire.length ? (
-              <List>
-                {this.state.repertoire.map(piece => {
-                  return (
-                    <ListItem key={piece._id}>
-                        {/* {piece.title} by {piece.composer}
-                      <a href={"/books/" + book._id}> */}
-                      <a href={"/edits/" + piece._id}>
-                        <strong>
-                          {piece.title} by {piece.composer}
-                        </strong>
-                      </a>
-                      <DeleteBtn onClick={() => this.deleteMusic(piece._id)} style={{float:"right"}} />
-                    </ListItem>
-                  );
-                })}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+            <Col size="md-6 sm-12">
+                {this.state.repertoire.length ? (
+                <List>
+                    {this.state.repertoire.map(piece => {
+                    return (
+                        <ListItem key={piece._id}>
+                        <a href={"/edits/" + piece._id} style={{color: "white", fontSize:"18px"}}>
+                            <strong>
+                            {piece.title} by {piece.composer}
+                            </strong>
+                        </a>
+                        <DeleteBtn onClick={() => this.deleteMusic(piece._id)} style={{float:"right"}} />
+                        </ListItem>
+                    );
+                    })}
+                </List>
+                ) : (
+                <h3>No Results to Display</h3>
+                )}
+            </Col>
+            <Col size="md-6">
+                <form>
+                <Input
+                    value={this.state.title}
+                    onChange={this.handleInputChange}
+                    name="title"
+                    placeholder="Title (required)"
+                />
+                <Input
+                    value={this.state.composer}
+                    onChange={this.handleInputChange}
+                    name="composer"
+                    placeholder="Composer"
+                />
+                <Input
+                    value={this.state.time}
+                    onChange={this.handleInputChange}
+                    name="time"
+                    placeholder="Time Frame"
+                />
+                <TextArea
+                    value={this.state.notes}
+                    onChange={this.handleInputChange}
+                    name="notes"
+                    placeholder="Notes"
+                />
+                <FormBtn
+                    disabled={!(this.state.title)}
+                    onClick={this.handleFormSubmit}
+                >
+                    Add to Repertoire
+                </FormBtn>
+                </form>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

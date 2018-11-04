@@ -26,7 +26,7 @@ const DisplayLinks = props => {
 					</li>
 					<li className="nav-item"  style={{color:"white"}}>
 						<Link to="/addMusic" className="nav-link">
-							Add a piece to your list
+							My Repertoire
 						</Link>
 					</li>
 				</ul>
