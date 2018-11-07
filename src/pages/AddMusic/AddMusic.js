@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import Jumbotron from "../../components/Jumbotron";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
@@ -9,7 +8,6 @@ import './AddMusic.css';
 
 
 class AddMusic extends Component {
-  // Setting our component's initial state
   state = {
     user: "",
     repertoire: [],
@@ -125,7 +123,8 @@ class AddMusic extends Component {
                     value={this.state.notes}
                     onChange={this.handleInputChange}
                     name="notes"
-                    placeholder="Notes"
+                    placeholder="Notes
+                    "
                 />
                 <FormBtn
                     disabled={!(this.state.title)}

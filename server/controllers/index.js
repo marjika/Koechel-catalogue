@@ -29,7 +29,7 @@ const Repertoire = require('../db/models/repertoire')
     
     router.get('/:id', (req,res) => {
         User.findOne({ _id: req.params.id })
-            .populate({path: "catalog", options: { sort: { 'composer': 1 } } })
+            .populate({path: "catalog", options: { sort: { 'title': 1 } } })
             .then(function(dbUser) {
                 console.log(res.data);
                 if(dbUser) {

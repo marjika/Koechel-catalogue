@@ -63,13 +63,14 @@
   height:auto !important; 
   height: 580px; 
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-weight: 500;
+  font-weight: bolder;
   text-transform: uppercase;
   text-decoration: none;
   color: white;
-  font-size: 44px;
+  font-size: 52px;
   letter-spacing: 1px;
-  padding-top: 20px;
+  padding-top: 150px;
+  text-shadow: black 20px 0px 20px;
 }
 
 .SignupForm, .LoginForm {
