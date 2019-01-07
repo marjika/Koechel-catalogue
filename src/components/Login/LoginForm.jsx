@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 // import googleButton from './google_signin_buttons/web/1x/btn_google_signin_dark_disabled_web.png'
-import googleButton from './google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png'
+//import googleButton from './google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png'
 
 class LoginForm extends Component {
 	constructor() {
@@ -55,10 +55,10 @@ class LoginForm extends Component {
 						/>
 						<button onClick={this.handleSubmit}>Login</button>
 					</form>
-					<a href="/auth/google">
+					{/* <a href="/auth/google"> */}
 						{/* <GoogleButton /> */}
-						<img src={googleButton} alt="sign into Google Button" />
-					</a>
+						{/* <img src={googleButton} alt="sign into Google Button" />
+					</a> */}
 				</div>
 			)
 		}

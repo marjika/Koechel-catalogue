@@ -90,3 +90,15 @@
   letter-spacing: 1px;
   padding-top: 20px;
 }
+
+.LoginForm H1 {
+  margin-bottom: 40px;
+}
+
+.SignupForm H1 {
+  margin-bottom: 40px;
+}
+
+.Header p {
+  font-size: 25px;
+}

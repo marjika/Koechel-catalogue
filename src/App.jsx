@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, withRouter } from 'react-router-dom'
 import './App.css'
 import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
@@ -95,8 +95,13 @@ class App extends Component {
 					loggedIn: false,
 					user: null
 				})
+				this.redirectToHome();
 			}
 		})
+	}
+
+	redirectToHome = () => {
+		this.props.history.push("/");
 	}
 
 	_login(username, password) {
@@ -150,4 +155,4 @@ class App extends Component {
 	}
 }
 
-export default App
+export default withRouter(App);
