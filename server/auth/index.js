@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../db/models/user')
-//const Repertoire = require('../db/models/repertoire')
 const passport = require('../passport')
 
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }))

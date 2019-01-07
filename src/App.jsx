@@ -143,10 +143,6 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
-				{/* <Route
-  					exact path="/addMusic"
-  					render={() => <AddMusic />}
-				/> */}
 				<Route exact path="/addMusic" component={AddMusic} />
 				<Route exact path="/edits/:id" component={Edits} />
 				{/* <LoginForm _login={this._login} /> */}
