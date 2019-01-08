@@ -16,6 +16,8 @@ The base project connects to a Mongo database and comes with a "user" model and 
 #### About 
 My Köchel Catalogue was created in October 2018-January 2019.  This application uses the MERN model and must have access to a database to be hosted.  It is hosted at .  My Köchel Catalogue was created and maintained by me, Marjika Howarth.
 
+
+##NOTE
 _The following is from the MERN passport github README._
 ### MERN + Passport.js
 > example MERN stack application that uses authentication
