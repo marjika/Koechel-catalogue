@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
@@ -89,11 +90,11 @@ class AddMusic extends Component {
                     {this.state.repertoire.map(piece => {
                     return (
                         <ListItem key={piece._id}>
-                        <a href={"/edits/" + piece._id} style={{color: "white", fontSize:"18px"}}>
+                        <Link to={"/edits/" + piece._id} style={{color: "white", fontSize:"18px"}}>
                             <strong>
                             {piece.title} by {piece.composer}
                             </strong>
-                        </a>
+                        </Link>
                         <DeleteBtn onClick={() => this.deleteMusic(piece._id)} style={{float:"right"}} />
                         </ListItem>
                     );
