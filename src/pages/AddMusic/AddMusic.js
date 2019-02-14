@@ -74,6 +74,10 @@ class AddMusic extends Component {
     }
   };
 
+  toEdits = (id) => {
+    this.props.history.push("/edits/" + id)
+  }
+
   render() {
     return (
       <div className="musicList">
@@ -142,3 +146,6 @@ class AddMusic extends Component {
 }
 
 export default AddMusic;
+
+//this.props.history.push("/game")
+//onClick={this.toEdits}
