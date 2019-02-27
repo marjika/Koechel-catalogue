@@ -128,8 +128,7 @@ class AddMusic extends Component {
                     value={this.state.notes}
                     onChange={this.handleInputChange}
                     name="notes"
-                    placeholder="Notes
-                    "
+                    placeholder="Notes"
                 />
                 <FormBtn
                     disabled={!(this.state.title)}
