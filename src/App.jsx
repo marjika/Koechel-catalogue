@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Route, Link, withRouter } from 'react-router-dom'
+import { Route, Link, withRouter, Switch } from 'react-router-dom'
 import './App.css'
 import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
@@ -132,19 +132,21 @@ class App extends Component {
 				</div>
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" render={() => <Home user={this.state.user} />} />
-				<Route
-					exact
-					path="/login"
-					render={() =>
-						<LoginForm
-							_login={this._login}
-							_googleSignin={this._googleSignin}
-						/>}
-				/>
-				<Route exact path="/signup" component={SignupForm} />
-				<Route exact path="/addMusic" component={AddMusic} />
-				<Route strict path="/edits/:id" component={Edits} />
+				<Switch>
+					<Route exact path="/" render={() => <Home user={this.state.user} />} />
+					<Route
+						exact
+						path="/login"
+						render={() =>
+							<LoginForm
+								_login={this._login}
+								_googleSignin={this._googleSignin}
+							/>}
+					/>
+					<Route exact path="/signup" component={SignupForm} />
+					<Route exact path="/addMusic" component={AddMusic} />
+					<Route strict path="/edits/:id" component={Edits} />
+				</Switch>
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 		)
