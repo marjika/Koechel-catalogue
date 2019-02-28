@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import AddMusic from './pages/AddMusic'
 import Edits from './pages/Edits'
+import NoMatch from './pages/NoMatch'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -146,6 +147,7 @@ class App extends Component {
 					<Route exact path="/signup" component={SignupForm} />
 					<Route exact path="/addMusic" component={AddMusic} />
 					<Route strict path="/edits/:id" component={Edits} />
+					<Route component={NoMatch}/>
 				</Switch>
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
